@@ -106,6 +106,31 @@ public class LinkedListCreation<T> {
 		}
 	}
 	
+	public void poplast()
+	{
+		if (head == null)
+		{
+			System.out.println("List is Empty");
+			return;
+		}
+		else 
+		{
+			if (head != tail) 
+			{
+				Node<T> current = head;
+				while(current.next != tail)
+				{
+					current = current.next;
+				}
+				tail = current;
+				tail.next = null;
+			}
+			else
+			{
+				head = tail = null;
+			}
+		}
+	}
 	
 	
 	public void display()
@@ -139,7 +164,9 @@ public class LinkedListCreation<T> {
 		list.addValue(56);
 		list.addValue(70);
 		list.insertatMid(30,1);
-		list.popFirst();
+		list.display();
+		System.out.println("After deleting last element");
+		list.poplast();
 		list.display();
 	}
 
