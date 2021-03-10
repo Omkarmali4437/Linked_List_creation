@@ -1,13 +1,13 @@
 package myPackage1;
 
-public class LinkedListCreation {
+public class LinkedListCreation<T> {
 	
-	class Node
+	class Node<T> 
 	{
-		int data;
+		T data;
 		Node next;
 		
-		public Node(int data)
+		public Node(T data)
 		{
 			this.data=data;
 			this.next=next;
@@ -17,7 +17,7 @@ public class LinkedListCreation {
 	public Node head=null;
 	public Node tail=null;
 	
-	public void addValue(int data)
+	public void insertatLast(T data)
 	{
 		Node newnode=new Node(data);
 		if(head==null)
@@ -32,7 +32,7 @@ public class LinkedListCreation {
 		}	
 	}
 	
-	public void insertatFirst(int data)
+	public void insertatFirst(T data)
 	{
 		Node newnode1=new Node(data);
 		if(head==null)
@@ -73,9 +73,9 @@ public class LinkedListCreation {
 	{
 		LinkedListCreation list=new LinkedListCreation();
 		
-		list.insertatFirst(70);
-		list.insertatFirst(30);
-		list.insertatFirst(56);
+		list.insertatLast(56);
+		list.insertatLast(30);
+		list.insertatLast(70);
 		list.display();
 	}
 
