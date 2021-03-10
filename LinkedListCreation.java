@@ -182,6 +182,29 @@ public class LinkedListCreation<T> {
 		previous.next=newnode3;	
 	}
 	
+	public void  deleteafteraGivennode(T key)
+	{
+		Node temp=head;
+		Node previous=null;
+		
+		if(temp != head && temp.data==key)
+		{
+			head=temp.next;
+			return;
+		}
+		while(temp != null && temp.data != key)
+		{
+			previous=temp;
+			temp=temp.next;
+		}
+		if(temp == null)
+		{
+			return;
+		}
+		previous.next=temp.next;
+			
+	}
+		
 	public void display()
 	{
 		Node current=head;
@@ -216,6 +239,9 @@ public class LinkedListCreation<T> {
 		list.display();
 		System.out.println("After insterting element after 30:");
 		list.insertAfterNode(list.head.next,40);
+		list.display();
+		System.out.println("After deleting element 40:");
+		list.deleteafteraGivennode(40);
 		list.display();
 	}
 
