@@ -106,7 +106,7 @@ public class LinkedListCreation<T> {
 		}
 	}
 	
-	public void poplast()
+	public void popLast()
 	{
 		if (head == null)
 		{
@@ -132,6 +132,42 @@ public class LinkedListCreation<T> {
 		}
 	}
 	
+	public void searchNode(T data)
+	{
+		Node ptr=head;
+		int i=0;
+		boolean flag=false;
+		if(ptr == null)
+		{
+			System.out.println("List empty");
+			return;
+		}
+		else
+		{
+			while(ptr != null)
+			{
+				if(ptr.data==data)
+				{
+					flag=true;
+					break;
+				}
+				else
+				{
+					flag=false;
+				}
+				i++;
+				ptr=ptr.next;
+			}
+			if(flag)
+			{
+				System.out.println(data+" node found at: "+i);
+			}
+			else
+			{
+				System.out.println(data+" node not present in list");
+			}
+		}
+	}
 	
 	public void display()
 	{
@@ -165,9 +201,7 @@ public class LinkedListCreation<T> {
 		list.addValue(70);
 		list.insertatMid(30,1);
 		list.display();
-		System.out.println("After deleting last element");
-		list.poplast();
-		list.display();
+		list.searchNode(30);
 	}
 
 }
