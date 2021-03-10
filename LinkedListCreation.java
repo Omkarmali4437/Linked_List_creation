@@ -1,5 +1,7 @@
 package myPackage1;
 
+import java.util.Scanner;
+
 public class LinkedListCreation<T extends Comparable<T>> {
 	
 	class Node<T> 
@@ -257,20 +259,103 @@ public class LinkedListCreation<T extends Comparable<T>> {
 		}
 	}
 	
-	
-	public static void main(String[] args) 
+	public void choice()
 	{
 		LinkedListCreation list=new LinkedListCreation();
 		
-		list.addValue(56);
-		list.addValue(30);
-		list.addValue(40);
-		list.addValue(70);
-		list.display();
+		Scanner sc=new Scanner(System.in);
 		
-		System.out.println();
-		list.sortList();
-		list.display();
+		System.out.println("1.Simple list, 2.Insert at first, 3.Insert at last,\n 4.Insert at  middle"
+				+ ", 5.Delete first, 6.Delete last, 7.Search,\n 8.Insert after given value"
+				+ ", 9.Delete given value, 10.Sorting");
+		int choose=sc.nextInt();
+		switch(choose)
+		{
+			case 1:
+				list.addValue(56);
+				list.addValue(30);
+				list.addValue(70);
+				list.display();
+				break;
+				
+			case 2:
+				list.insertatFirst(70);
+				list.insertatFirst(30);
+				list.insertatFirst(56);
+				list.display();
+				break;
+			case 3:
+				list.insertatLast(56);
+				list.insertatLast(30);
+				list.insertatLast(70);
+				list.display();
+				break;
+			case 4:
+				list.addValue(56);
+				list.addValue(70);
+				list.insertatMid(30,1);
+				list.display();
+				break;
+			case 5:
+				list.addValue(56);
+				list.addValue(70);
+				list.insertatMid(30,1);
+				list.display();
+				System.out.println("After deleting first element");
+				list.popFirst();
+				list.display();
+				break;
+			case 6:
+				list.addValue(56);
+				list.addValue(70);
+				list.insertatMid(30,1);
+				list.display();
+				System.out.println("After deleting last element");
+				list.popLast();
+				list.display();
+				break;
+			case 7:
+				list.addValue(56);
+				list.addValue(30);
+				list.addValue(70);
+				list.searchNode(30);
+				break;
+			case 8:
+				list.addValue(56);
+				list.addValue(70);
+				list.insertatMid(30,1);
+				list.display();
+				System.out.println("After insterting element after 30:");
+				list.insertAfterNode(list.head.next,40);
+				list.display();
+				break;
+			case 9:
+				list.addValue(56);
+				list.addValue(30);
+				list.addValue(70);
+				list.addValue(40);
+				list.display();
+				list.deleteafteraGivennode(40);
+				list.display();
+			case 10:
+				list.addValue(56);
+				list.addValue(30);
+				list.addValue(40);
+				list.addValue(70);
+				list.display();
+				
+				System.out.println();
+				list.sortList();
+				list.display();
+				break;
+		}
+
+	}
+	
+	public static void main(String[] args) 
+	{
+		LinkedListCreation obj=new LinkedListCreation();
+		obj.choice();
 	}
 
 }
