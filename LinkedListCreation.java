@@ -1,6 +1,6 @@
 package myPackage1;
 
-public class LinkedListCreation<T> {
+public class LinkedListCreation<T extends Comparable<T>> {
 	
 	class Node<T> 
 	{
@@ -201,8 +201,37 @@ public class LinkedListCreation<T> {
 		{
 			return;
 		}
-		previous.next=temp.next;
-			
+		previous.next=temp.next;	
+	}
+	
+	public <T> void sortList()
+	{
+		Node current=head;
+		Node index=null;
+		T temp;
+		
+		if(head == null)
+		{
+			return;
+		}
+		else
+		{
+			while(current != null)
+			{
+				index=current.next;
+				while(index != null)
+				{
+					if(((Comparable<T>) current.data).compareTo((T) index.data)>0)
+					{
+						temp=(T) current.data;
+						current.data=index.data;
+						index.data=temp;
+					}
+					index=index.next;
+				}
+				current=current.next;
+			}
+		}
 	}
 		
 	public void display()
@@ -224,7 +253,7 @@ public class LinkedListCreation<T> {
 				size++;
 				current=current.next;
 			}
-			System.out.println();
+			System.out.println("List size is: "+size);
 		}
 	}
 	
@@ -234,14 +263,13 @@ public class LinkedListCreation<T> {
 		LinkedListCreation list=new LinkedListCreation();
 		
 		list.addValue(56);
+		list.addValue(30);
+		list.addValue(40);
 		list.addValue(70);
-		list.insertatMid(30,1);
 		list.display();
-		System.out.println("After insterting element after 30:");
-		list.insertAfterNode(list.head.next,40);
-		list.display();
-		System.out.println("After deleting element 40:");
-		list.deleteafteraGivennode(40);
+		
+		System.out.println();
+		list.sortList();
 		list.display();
 	}
 
