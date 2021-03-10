@@ -17,7 +17,7 @@ public class LinkedListCreation<T> {
 	public Node head=null;
 	public Node tail=null;
 	
-	public void insertatLast(T data)
+	public void addValue(T data)
 	{
 		Node newnode=new Node(data);
 		if(head==null)
@@ -48,9 +48,48 @@ public class LinkedListCreation<T> {
 		}
 	}
 	
+	public void insertatLast(T data)
+	{
+		Node newnode=new Node(data);
+		if(head==null)
+		{
+			head=newnode;
+			tail=newnode;
+		}
+		else
+		{
+			tail.next=newnode;
+			tail=newnode;
+		}	
+	}
+	
+	public <T> Node insertatMid(T data, int position)
+	{
+		Node newnode2=new Node(data);
+		newnode2.data=data;
+		Node current=head;
+		Node oldNode=null;
+		int count=0;
+		
+		while(count<position)
+		{
+			oldNode=current;
+			current=current.next;
+			count++;
+		}
+		newnode2.next=current;
+		while(oldNode != null)
+		{
+			oldNode.next=newnode2;
+			return head;		
+		}
+		return newnode2;
+	}
+	
 	public void display()
 	{
 		Node current=head;
+		int size=0;
 		
 		if(head==null)
 		{
@@ -63,19 +102,21 @@ public class LinkedListCreation<T> {
 			while(current!=null)
 			{
 				System.out.println(current.data+" ");
+				size++;
 				current=current.next;
 			}
 			System.out.println();
 		}
 	}
 	
+	
 	public static void main(String[] args) 
 	{
 		LinkedListCreation list=new LinkedListCreation();
 		
-		list.insertatLast(56);
-		list.insertatLast(30);
-		list.insertatLast(70);
+		list.addValue(56);
+		list.addValue(70);
+		list.insertatMid(30,1);
 		list.display();
 	}
 
