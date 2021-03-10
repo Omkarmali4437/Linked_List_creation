@@ -160,13 +160,26 @@ public class LinkedListCreation<T> {
 			}
 			if(flag)
 			{
-				System.out.println(data+" node found at: "+i);
+				System.out.println(data+" node found at: "+i+"\n");
 			}
 			else
 			{
 				System.out.println(data+" node not present in list");
 			}
 		}
+	}
+	
+	public void insertAfterNode(Node previous,T data)
+	{
+		if(previous == null)
+		{
+			System.out.println("Previous node cannot be empty");
+			return;
+		}
+		
+		Node newnode3=new Node(data);
+		newnode3.next=previous.next;
+		previous.next=newnode3;	
 	}
 	
 	public void display()
@@ -201,7 +214,9 @@ public class LinkedListCreation<T> {
 		list.addValue(70);
 		list.insertatMid(30,1);
 		list.display();
-		list.searchNode(30);
+		System.out.println("After insterting element after 30:");
+		list.insertAfterNode(list.head.next,40);
+		list.display();
 	}
 
 }
