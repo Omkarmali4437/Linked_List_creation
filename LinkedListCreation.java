@@ -32,6 +32,22 @@ public class LinkedListCreation {
 		}	
 	}
 	
+	public void insertatFirst(int data)
+	{
+		Node newnode1=new Node(data);
+		if(head==null)
+		{
+			head=newnode1;
+			tail=newnode1;
+		}
+		else
+		{
+			Node node1=head;
+			head=newnode1;
+			head.next=node1;
+		}
+	}
+	
 	public void display()
 	{
 		Node current=head;
@@ -41,22 +57,25 @@ public class LinkedListCreation {
 			System.out.println("List is Empty");
 			return;
 		}
-		System.out.println("Values of list are: ");
-		while(current!=null)
+		else 
 		{
-			System.out.println(current.data+" ");
-			current=current.next;
+			System.out.println("Values of list are: ");
+			while(current!=null)
+			{
+				System.out.println(current.data+" ");
+				current=current.next;
+			}
+			System.out.println();
 		}
-		System.out.println();
 	}
 	
 	public static void main(String[] args) 
 	{
 		LinkedListCreation list=new LinkedListCreation();
 		
-		list.addValue(56);
-		list.addValue(30);
-		list.addValue(70);
+		list.insertatFirst(70);
+		list.insertatFirst(30);
+		list.insertatFirst(56);
 		list.display();
 	}
 
