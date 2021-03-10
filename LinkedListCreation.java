@@ -86,6 +86,28 @@ public class LinkedListCreation<T> {
 		return newnode2;
 	}
 	
+	public void popFirst()
+	{
+		if(head == null)
+		{
+			System.out.println("List empty");
+			return;
+		}
+		else
+		{
+			if(head != tail)
+			{
+				head=head.next;
+			}
+			else
+			{
+				head=tail=null;
+			}
+		}
+	}
+	
+	
+	
 	public void display()
 	{
 		Node current=head;
@@ -117,6 +139,7 @@ public class LinkedListCreation<T> {
 		list.addValue(56);
 		list.addValue(70);
 		list.insertatMid(30,1);
+		list.popFirst();
 		list.display();
 	}
 
